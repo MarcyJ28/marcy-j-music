@@ -7,33 +7,35 @@
   <meta name="description" content="Official artist website for Marcy J." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#070b14;
       --bg2:#0f1728;
       --text:#f5f7fb;
-      --muted:#c8d0df;
+      --muted:#d7dced;
       --gold:#f0c36a;
-      --gold2:#ffe1a0;
-      --line:rgba(255,255,255,.12);
+      --gold2:#ffe7ae;
+      --line:rgba(255,255,255,.14);
       --card:rgba(255,255,255,.08);
       --fire:#ff7a00;
       --water:#4db8ff;
-      --shadow:0 20px 50px rgba(0,0,0,.45);
-      --radius:24px;
-      --max:1200px;
+      --shadow:0 24px 60px rgba(0,0,0,.45);
+      --radius:28px;
+      --max:1220px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:'Inter',sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 15% 20%, rgba(255,122,0,.16), transparent 22%),
-        radial-gradient(circle at 85% 15%, rgba(77,184,255,.16), transparent 22%),
+        linear-gradient(rgba(7,11,20,.74), rgba(7,11,20,.88)),
+        url('https://images.pexels.com/photos/36411817/pexels-photo-36411817.jpeg?cs=srgb&dl=pexels-on3sign-36411817.jpg&fm=jpg') center/cover fixed no-repeat,
         linear-gradient(180deg, #05070d 0%, #0a1220 45%, #09111d 100%);
       overflow-x:hidden;
     }
@@ -46,41 +48,50 @@
       background:
         linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:36px 36px;
-      mask-image:linear-gradient(to bottom, rgba(0,0,0,.8), transparent 90%);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 92%);
       z-index:-2;
     }
 
     .glow{
       position:fixed;
       border-radius:50%;
-      filter:blur(80px);
+      filter:blur(90px);
       z-index:-1;
-      opacity:.35;
+      opacity:.34;
       pointer-events:none;
-      animation:floatGlow 12s ease-in-out infinite alternate;
+      animation:floatGlow 14s ease-in-out infinite alternate;
     }
 
     .glow.one{
-      width:280px;
-      height:280px;
-      background:rgba(255,122,0,.35);
-      top:5%;
-      left:-60px;
+      width:300px;
+      height:300px;
+      background:rgba(255,122,0,.30);
+      top:3%;
+      left:-70px;
     }
 
     .glow.two{
-      width:320px;
-      height:320px;
-      background:rgba(77,184,255,.28);
+      width:340px;
+      height:340px;
+      background:rgba(77,184,255,.24);
       top:45%;
-      right:-80px;
-      animation-duration:15s;
+      right:-90px;
+      animation-duration:17s;
+    }
+
+    .glow.three{
+      width:260px;
+      height:260px;
+      background:rgba(255,231,174,.12);
+      bottom:6%;
+      left:18%;
+      animation-duration:16s;
     }
 
     @keyframes floatGlow{
       from{transform:translateY(0) translateX(0) scale(1)}
-      to{transform:translateY(-30px) translateX(20px) scale(1.08)}
+      to{transform:translateY(-28px) translateX(18px) scale(1.08)}
     }
 
     .container{
@@ -93,7 +104,7 @@
       top:0;
       z-index:50;
       backdrop-filter:blur(14px);
-      background:rgba(7,11,20,.62);
+      background:rgba(7,11,20,.55);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
 
@@ -124,6 +135,7 @@
       color:var(--muted);
       text-decoration:none;
       font-size:.95rem;
+      transition:.2s ease;
     }
 
     .nav a:hover{
@@ -134,13 +146,13 @@
       min-height:100vh;
       display:flex;
       align-items:center;
-      padding:48px 0 30px;
+      padding:52px 0 34px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:34px;
+      grid-template-columns:1.08fr .92fr;
+      gap:38px;
       align-items:center;
     }
 
@@ -150,51 +162,60 @@
       border:1px solid rgba(255,255,255,.14);
       border-radius:999px;
       color:var(--gold2);
-      background:rgba(255,255,255,.04);
+      background:rgba(255,255,255,.05);
       font-size:.88rem;
       margin-bottom:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
     }
 
     h1{
       font-family:'Cinzel',serif;
-      font-size:clamp(2.8rem, 7vw, 5.8rem);
-      line-height:.96;
+      font-size:clamp(3rem, 7vw, 6.2rem);
+      line-height:.95;
       margin:0 0 18px;
-      text-shadow:0 6px 24px rgba(0,0,0,.45);
-    }
-
-    .hero p{
-      font-size:1.06rem;
-      color:var(--muted);
-      max-width:650px;
-      margin:0 0 26px;
+      text-shadow:0 8px 30px rgba(0,0,0,.48);
     }
 
     .accent-text{
+      display:block;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(2.2rem, 5vw, 4rem);
+      line-height:1;
+      font-weight:700;
       background:linear-gradient(90deg, var(--gold2), #fff, #ffd37c);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
+      margin-top:6px;
+    }
+
+    .hero p{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:650px;
+      margin:0 0 26px;
     }
 
     .hero-buttons{
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-bottom:24px;
+      margin-bottom:18px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
       text-decoration:none;
-      padding:15px 22px;
+      padding:16px 24px;
       border-radius:999px;
-      font-weight:700;
+      font-weight:800;
+      letter-spacing:.02em;
       transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
       box-shadow:var(--shadow);
+      border:none;
+      cursor:pointer;
     }
 
     .btn:hover{
@@ -208,15 +229,15 @@
 
     .btn-secondary{
       color:#fff;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.06);
+      background:linear-gradient(135deg, rgba(255,122,0,.24), rgba(77,184,255,.22));
+      border:1px solid rgba(255,255,255,.18);
     }
 
     .hero-card{
       position:relative;
-      border-radius:32px;
+      border-radius:34px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.05);
       box-shadow:var(--shadow);
     }
@@ -224,6 +245,14 @@
     .hero-card img{
       width:100%;
       display:block;
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(7,11,20,.25), transparent 36%);
+      pointer-events:none;
     }
 
     .hero-badge{
@@ -234,8 +263,9 @@
       padding:14px 16px;
       border-radius:18px;
       background:linear-gradient(135deg, rgba(255,122,0,.22), rgba(77,184,255,.18), rgba(255,255,255,.1));
-      backdrop-filter:blur(8px);
+      backdrop-filter:blur(10px);
       border:1px solid rgba(255,255,255,.16);
+      z-index:2;
     }
 
     .hero-badge strong{
@@ -256,18 +286,17 @@
 
     .section-sub{
       color:var(--muted);
-      max-width:760px;
+      max-width:780px;
       margin:0 0 24px;
     }
 
-    .announcement-card,
-    .bio-card,
-    .social-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:24px;
+      padding:26px;
       box-shadow:var(--shadow);
+      backdrop-filter:blur(6px);
     }
 
     .announcement-card{
@@ -288,49 +317,25 @@
       padding:8px 12px;
       border-radius:999px;
       font-size:.82rem;
-      font-weight:700;
+      font-weight:800;
       color:#111;
       background:linear-gradient(135deg, var(--gold2), var(--gold));
       margin-bottom:14px;
     }
 
     .announcement-title{
-      font-size:1.6rem;
+      font-size:1.7rem;
       margin:0 0 10px;
+      position:relative;
+      z-index:1;
     }
 
     .announcement-text{
       color:var(--muted);
-      margin:0 0 20px;
-    }
-
-    .stream-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:14px;
-      margin-top:20px;
-    }
-
-    .stream-link{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      min-height:68px;
-      padding:14px;
-      text-decoration:none;
-      color:#fff;
-      font-weight:700;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      transition:transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-
-    .stream-link:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,255,255,.28);
-      background:rgba(255,255,255,.1);
+      margin:0 0 22px;
+      position:relative;
+      z-index:1;
+      max-width:760px;
     }
 
     .split{
@@ -340,13 +345,14 @@
       align-items:stretch;
     }
 
-    .bio-card p{
+    .bio-card p,
+    .contact-card p{
       color:var(--muted);
       margin:0 0 16px;
     }
 
     .social-image{
-      border-radius:24px;
+      border-radius:28px;
       overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
@@ -358,8 +364,26 @@
       display:block;
     }
 
+    .contact-card{
+      text-align:left;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .contact-card::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      bottom:-40px;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,231,174,.18), transparent 65%);
+      pointer-events:none;
+    }
+
     footer{
-      padding:36px 0 50px;
+      padding:38px 0 54px;
       text-align:center;
       color:var(--muted);
     }
@@ -372,21 +396,13 @@
 
       .hero{
         min-height:auto;
-        padding-top:30px;
-      }
-
-      .stream-grid{
-        grid-template-columns:1fr 1fr;
+        padding-top:32px;
       }
     }
 
     @media (max-width: 560px){
       .nav{
         display:none;
-      }
-
-      .stream-grid{
-        grid-template-columns:1fr;
       }
 
       .btn{
@@ -398,7 +414,7 @@
       }
 
       .announcement-title{
-        font-size:1.35rem;
+        font-size:1.4rem;
       }
     }
   </style>
@@ -406,15 +422,16 @@
 <body>
   <div class="glow one"></div>
   <div class="glow two"></div>
+  <div class="glow three"></div>
 
   <div class="topbar">
     <div class="container topbar-inner">
       <a href="#top" class="brand">MARCY J.MUSIC</a>
       <nav class="nav">
         <a href="#announcement">Announcement</a>
-        <a href="#music">Music</a>
         <a href="#bio">Bio</a>
         <a href="#connect">Connect</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </div>
@@ -423,24 +440,26 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">Christian Independent Artist & Songwriter</div>
+
         <h1>
-          Marcy J<br>
+          Marcy J
           <span class="accent-text">Elements of Me</span>
         </h1>
+
         <p>
-          Music shaped by faith, healing, restoration, and truth. A bold, cinematic sound rooted in testimony and created to uplift, inspire, and point people back to God.
+          Music shaped by faith, healing, restoration, and truth. A bold and heartfelt sound rooted in testimony, created to uplift, inspire, and point people back to the One who restores.
         </p>
 
         <div class="hero-buttons">
-          <a class="btn btn-primary" href="#music">Listen Now</a>
-          <a class="btn btn-secondary" href="#announcement">Latest Announcement</a>
+          <a class="btn btn-primary" href="https://distrokid.com/hyperfollow/marcyj/elements-of-me?msockid=16a5cca8721f6bdb3a1edd60761f6d0b" target="_blank">Listen Now</a>
+          <a class="btn btn-secondary" href="#contact">Contact Marcy J</a>
         </div>
       </div>
 
       <div class="hero-card">
         <img src="album-cover.jpg" alt="Marcy J Elements of Me album cover">
         <div class="hero-badge">
-          <strong>Now Featuring</strong>
+          <strong>Now Streaming</strong>
           <span>Elements of Me</span>
         </div>
       </div>
@@ -449,40 +468,47 @@
 
   <section class="section" id="announcement">
     <div class="container">
-      <div class="announcement-card">
+      <div class="card announcement-card">
         <div class="pill">New Release</div>
         <h2 class="announcement-title">Marcy J’s album <em>Elements of Me</em> is out now.</h2>
         <p class="announcement-text">
-          Available on Apple Music, Spotify, YouTube, and more. Stream the album and stay connected for new music, visuals, and announcements.
+          Stream the album now through Marcy J’s official music link and stay connected for future announcements, new releases, and updates.
         </p>
 
-        <div class="stream-grid" id="music">
-          <a class="stream-link" href="#" target="_blank">Apple Music</a>
-          <a class="stream-link" href="#" target="_blank">Spotify</a>
-          <a class="stream-link" href="#" target="_blank">YouTube</a>
-          <a class="stream-link" href="#" target="_blank">DistroKid</a>
-        </div>
+        <a class="btn btn-primary" href="https://distrokid.com/hyperfollow/marcyj/elements-of-me?msockid=16a5cca8721f6bdb3a1edd60761f6d0b" target="_blank">Listen Now</a>
       </div>
     </div>
   </section>
 
   <section class="section" id="bio">
     <div class="container split">
-      <div class="bio-card">
+      <div class="card bio-card">
         <h2 class="section-title">About Marcy J</h2>
         <p>
-          Marcy J, born Marcia, is a Christian independent artist and songwriter whose music flows from a place of faith, transparency, and deep personal restoration. A natural storyteller with a heart for healing, she writes songs that speak to the weary, the searching, and the hopeful — blending scripture, soul, and honest testimony into every lyric.
+          Marcy J, born Marcia, is a Christian independent artist and songwriter whose music flows from a place of faith, transparency, and deep personal restoration.
         </p>
         <p>
-          Her debut single, “Rest,” introduced her as a refreshing new voice in Christian music. Inspired by Matthew 11:28, the song invites listeners to lay down their burdens and find peace in God’s presence.
+          A natural storyteller with a heart for healing, she writes songs that speak to the weary, the searching, and the hopeful — blending scripture, soul, and honest testimony into every lyric.
         </p>
         <p>
-          In 2026, she expanded her creative vision with the release of her full-length album, <strong>Elements of Me</strong> — a deeply personal journey from brokenness to restoration.
+          Her debut single, “Rest,” introduced her as a refreshing new voice in Christian music. In 2026, she expanded her creative vision with the release of her full-length album, <strong>Elements of Me</strong> — a deeply personal journey from brokenness to restoration.
         </p>
       </div>
 
       <div class="social-image" id="connect">
         <img src="social-promo.jpg" alt="Marcy J social media promo graphic">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="card contact-card">
+        <h2 class="section-title">Want to contact the artist?</h2>
+        <p>
+          If you’d like to reach out to Marcy J about the album, share encouragement, discuss possible collaboration, or talk about creating music together, use the button below.
+        </p>
+        <a class="btn btn-secondary" href="mailto:marcyjmusic26@gmail.com">Contact Marcy J</a>
       </div>
     </div>
   </section>
