@@ -1,1 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marcy J.Music</title>
+  <meta name="description" content="Official artist website for Marcy J." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070b14;
+      --bg2:#0f1728;
+      --text:#f5f7fb;
+      --muted:#c8d0df;
+      --gold:#f0c36a;
+      --gold2:#ffe1a0;
+      --line:rgba(255,255,255,.12);
+      --card:rgba(255,255,255,.08);
+      --fire:#ff7a00;
+      --water:#4db8ff;
+      --shadow:0 20px 50px rgba(0,0,0,.45);
+      --radius:24px;
+      --max:1200px;
+    }
 
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,122,0,.16), transparent 22%),
+        radial-gradient(circle at 85% 15%, rgba(77,184,255,.16), transparent 22%),
+        linear-gradient(180deg, #05070d 0%, #0a1220 45%, #09111d 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:36px 36px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.8), transparent 90%);
+      z-index:-2;
+    }
+
+    .glow{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(80px);
+      z-index:-1;
+      opacity:.35;
+      pointer-events:none;
+      animation:floatGlow 12s ease-in-out infinite alternate;
+    }
+
+    .glow.one{
+      width:280px;
+      height:280px;
+      background:rgba(255,122,0,.35);
+      top:5%;
+      left:-60px;
+    }
+
+    .glow.two{
+      width:320px;
+      height:320px;
+      background:rgba(77,184,255,.28);
+      top:45%;
+      right:-80px;
+      animation-duration:15s;
+    }
+
+    @keyframes floatGlow{
+      from{transform:translateY(0) translateX(0) scale(1)}
+      to{transform:translateY(-30px) translateX(20px) scale(1.08)}
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(7,11,20,.62);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+
+    .brand{
+      font-family:'Cinzel',serif;
+      color:var(--gold2);
+      font-size:1rem;
+      letter-spacing:.08em;
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav a:hover{
+      color:#fff;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:48px 0 30px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:10px 16px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      color:var(--gold2);
+      background:rgba(255,255,255,.04);
+      font-size:.88rem;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-family:'Cinzel',serif;
+      font-size:clamp(2.8rem, 7vw, 5.8rem);
+      line-height:.96;
+      margin:0 0 18px;
+      text-shadow:0 6px 24px rgba(0,0,0,.45);
+    }
+
+    .hero p{
+      font-size:1.06rem;
+      color:var(--muted);
+      max-width:650px;
+      margin:0 0 26px;
+    }
+
+    .accent-text{
+      background:linear-gradient(90deg, var(--gold2), #fff, #ffd37c);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      padding:15px 22px;
+      border-radius:999px;
+      font-weight:700;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow:var(--shadow);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      color:#111;
+      background:linear-gradient(135deg, var(--gold2), var(--gold));
+    }
+
+    .btn-secondary{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+    }
+
+    .hero-card{
+      position:relative;
+      border-radius:32px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card img{
+      width:100%;
+      display:block;
+    }
+
+    .hero-badge{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(255,122,0,.22), rgba(77,184,255,.18), rgba(255,255,255,.1));
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.16);
+    }
+
+    .hero-badge strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .section{
+      padding:28px 0;
+    }
+
+    .section-title{
+      font-family:'Cinzel',serif;
+      font-size:clamp(2rem, 4vw, 3rem);
+      margin:0 0 10px;
+    }
+
+    .section-sub{
+      color:var(--muted);
+      max-width:760px;
+      margin:0 0 24px;
+    }
+
+    .announcement-card,
+    .bio-card,
+    .social-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .announcement-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .announcement-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, rgba(255,122,0,.14), transparent 35%, rgba(77,184,255,.12));
+      pointer-events:none;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      color:#111;
+      background:linear-gradient(135deg, var(--gold2), var(--gold));
+      margin-bottom:14px;
+    }
+
+    .announcement-title{
+      font-size:1.6rem;
+      margin:0 0 10px;
+    }
+
+    .announcement-text{
+      color:var(--muted);
+      margin:0 0 20px;
+    }
+
+    .stream-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+      margin-top:20px;
+    }
+
+    .stream-link{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      min-height:68px;
+      padding:14px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .stream-link:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.28);
+      background:rgba(255,255,255,.1);
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .bio-card p{
+      color:var(--muted);
+      margin:0 0 16px;
+    }
+
+    .social-image{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:rgba(255,255,255,.05);
+    }
+
+    .social-image img{
+      width:100%;
+      display:block;
+    }
+
+    footer{
+      padding:36px 0 50px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    @media (max-width: 900px){
+      .hero-grid,
+      .split{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+        padding-top:30px;
+      }
+
+      .stream-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px){
+      .nav{
+        display:none;
+      }
+
+      .stream-grid{
+        grid-template-columns:1fr;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .announcement-title{
+        font-size:1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="brand">MARCY J.MUSIC</a>
+      <nav class="nav">
+        <a href="#announcement">Announcement</a>
+        <a href="#music">Music</a>
+        <a href="#bio">Bio</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Christian Independent Artist & Songwriter</div>
+        <h1>
+          Marcy J<br>
+          <span class="accent-text">Elements of Me</span>
+        </h1>
+        <p>
+          Music shaped by faith, healing, restoration, and truth. A bold, cinematic sound rooted in testimony and created to uplift, inspire, and point people back to God.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#music">Listen Now</a>
+          <a class="btn btn-secondary" href="#announcement">Latest Announcement</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="album-cover.jpg" alt="Marcy J Elements of Me album cover">
+        <div class="hero-badge">
+          <strong>Now Featuring</strong>
+          <span>Elements of Me</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="announcement">
+    <div class="container">
+      <div class="announcement-card">
+        <div class="pill">New Release</div>
+        <h2 class="announcement-title">Marcy J’s album <em>Elements of Me</em> is out now.</h2>
+        <p class="announcement-text">
+          Available on Apple Music, Spotify, YouTube, and more. Stream the album and stay connected for new music, visuals, and announcements.
+        </p>
+
+        <div class="stream-grid" id="music">
+          <a class="stream-link" href="#" target="_blank">Apple Music</a>
+          <a class="stream-link" href="#" target="_blank">Spotify</a>
+          <a class="stream-link" href="#" target="_blank">YouTube</a>
+          <a class="stream-link" href="#" target="_blank">DistroKid</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bio">
+    <div class="container split">
+      <div class="bio-card">
+        <h2 class="section-title">About Marcy J</h2>
+        <p>
+          Marcy J, born Marcia, is a Christian independent artist and songwriter whose music flows from a place of faith, transparency, and deep personal restoration. A natural storyteller with a heart for healing, she writes songs that speak to the weary, the searching, and the hopeful — blending scripture, soul, and honest testimony into every lyric.
+        </p>
+        <p>
+          Her debut single, “Rest,” introduced her as a refreshing new voice in Christian music. Inspired by Matthew 11:28, the song invites listeners to lay down their burdens and find peace in God’s presence.
+        </p>
+        <p>
+          In 2026, she expanded her creative vision with the release of her full-length album, <strong>Elements of Me</strong> — a deeply personal journey from brokenness to restoration.
+        </p>
+      </div>
+
+      <div class="social-image" id="connect">
+        <img src="social-promo.jpg" alt="Marcy J social media promo graphic">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Marcy J.Music. All rights reserved.
+  </footer>
+</body>
+</html>
